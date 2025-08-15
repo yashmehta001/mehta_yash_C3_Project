@@ -59,5 +59,15 @@ class RestaurantTest {
                 () -> restaurant.removeFromMenu("French fries"));
     }
 
+    @Test
+    public void selecting_items_should_return_correct_total_order_value() {
+        List<String> selectedItems = Arrays.asList("Sweet corn soup", "Vegetable lasagne");
+        assertEquals(388, restaurant.getOrderValue(selectedItems));
+    }
+
+    @Test
+    public void no_items_selected_should_return_zero() {
+        assertEquals(0, restaurant.getOrderValue(Collections.emptyList()));
+    }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
