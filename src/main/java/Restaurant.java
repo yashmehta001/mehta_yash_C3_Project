@@ -60,6 +60,19 @@ public class Restaurant {
 
     }
 
+    public int getOrderValue(List<String> itemNames) {
+        int total = 0;
+        for (String name : itemNames) {
+            for (Item item : menu) {
+                if (item.getName().equalsIgnoreCase(name)) {
+                    total += item.getPrice();
+                    break;
+                }
+            }
+        }
+        return total;
+    }
+
     public String getName() {
         return name;
     }
